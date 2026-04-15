@@ -7,12 +7,13 @@
   <meta name="description" content="Página de links premium minimalista, responsiva e mobile-first.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer">
   <style>
     :root {
       --bg: #ffffff;
-      --surface: #f6f3ec;
+      --surface: #ffffff;
+      --brand-green: #12c44f;
       --line: #8c7b6b;
       --text: #000000;
       --text-soft: #000000;
@@ -35,40 +36,23 @@
       padding: 0.7rem 0.55rem;
       background: var(--bg);
       color: var(--text);
-      font-family: "Montserrat", "Open Sans", Arial, sans-serif;
+      font-family: "Noto Serif", Georgia, "Times New Roman", serif;
     }
 
     .phone {
       width: min(100%, 25rem);
       background: var(--surface);
       border-radius: var(--radius-phone);
-      border: 1px solid rgba(140, 123, 107, 0.32);
-      box-shadow: var(--shadow);
+      border: none;
+      box-shadow: none;
       padding: 0.6rem 0.65rem 1rem;
       animation: fadeInUp 700ms ease both;
-    }
-
-    .notch {
-      width: 34%;
-      height: 0.35rem;
-      border-radius: 100px;
-      margin: 0.25rem auto 0.55rem;
-      background: rgba(140, 123, 107, 0.26);
-    }
-
-    .cover {
-      width: 100%;
-      aspect-ratio: 16 / 8.3;
-      object-fit: cover;
-      object-position: center;
-      border-radius: var(--radius-cover) var(--radius-cover) 0 0;
-      display: block;
     }
 
     .profile {
       width: 6.6rem;
       height: 6.6rem;
-      margin: -3.25rem auto 0.85rem;
+      margin: 0.4rem auto 0.85rem;
       border-radius: 50%;
       object-fit: cover;
       border: 3px solid var(--surface);
@@ -80,12 +64,12 @@
 
     .profile-name {
       margin: 0;
-      font-family: "Playfair Display", Georgia, serif;
+      font-family: "DM Serif Display", "Times New Roman", serif;
       font-size: 1.7rem;
       font-weight: 400;
       text-align: center;
       letter-spacing: 0.01em;
-      color: var(--text);
+      color: var(--brand-green);
     }
 
     .profile-role {
@@ -130,21 +114,21 @@
       display: grid;
       place-items: center;
       min-height: 2.35rem;
-      border: 1px solid rgba(140, 123, 107, 0.8);
+      border: 1px solid var(--brand-green);
       border-radius: 0;
       background: transparent;
-      color: var(--text);
+      color: #000000;
       text-decoration: none;
       font-size: 0.69rem;
       letter-spacing: 0.24em;
-      font-weight: 500;
+      font-weight: 600;
       transition: background-color 260ms ease, color 260ms ease, transform 220ms ease, box-shadow 260ms ease;
     }
 
     .link-btn:hover,
     .link-btn:focus-visible {
-      background: rgba(140, 123, 107, 0.12);
-      color: #000000;
+      background: rgba(18, 196, 79, 0.08);
+      color: var(--brand-green);
       transform: translateY(-1px);
       box-shadow: 0 5px 12px rgba(74, 63, 53, 0.1);
       outline: none;
@@ -226,15 +210,6 @@
 </head>
 <body>
   <main class="phone" aria-label="Cartão de links">
-    <div class="notch" aria-hidden="true"></div>
-
-    <!-- Substitua a imagem da capa alterando apenas o src -->
-    <img
-      class="cover"
-      src="img/image.png"
-      alt="Imagem de capa"
-    >
-
     <!-- Substitua a foto de perfil alterando apenas o src -->
     <img
       class="profile"
