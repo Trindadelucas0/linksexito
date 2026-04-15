@@ -112,25 +112,40 @@
 
     .link-btn {
       display: grid;
-      place-items: center;
+      grid-template-columns: 1.4rem 1fr 1.4rem;
+      align-items: center;
       min-height: 2.35rem;
       border: 1px solid var(--brand-green);
-      border-radius: 0;
-      background: transparent;
+      border-radius: 0.85rem;
+      background: #ffffff;
       color: #000000;
       text-decoration: none;
       font-size: 0.69rem;
-      letter-spacing: 0.24em;
+      letter-spacing: 0.08em;
       font-weight: 600;
+      padding: 0 0.85rem;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
       transition: background-color 260ms ease, color 260ms ease, transform 220ms ease, box-shadow 260ms ease;
+    }
+
+    .link-btn-icon {
+      grid-column: 1;
+      justify-self: center;
+      font-size: 0.92rem;
+      color: #111111;
+    }
+
+    .link-btn-text {
+      grid-column: 2;
+      text-align: center;
     }
 
     .link-btn:hover,
     .link-btn:focus-visible {
       background: rgba(18, 196, 79, 0.08);
-      color: var(--brand-green);
+      color: #000000;
       transform: translateY(-1px);
-      box-shadow: 0 5px 12px rgba(74, 63, 53, 0.1);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
       outline: none;
     }
 
@@ -235,21 +250,35 @@
 
   <script>
     const links = [
-      { title: "WHATSAPP", url: "https://wa.me/38998788927" },
-      { title: "SITE", url: "https://www.exitocon.com.br/" },
-      { title: "INSTAGRAM", url: "https://instagram.com/exitoconunai" },
-      { title: "SERVIÇOS", url: "#" },
-      { title: "RECUPERAÇÃO DE CREDITO", url: "#" }
+      { title: "WHATSAPP", url: "https://wa.me/38998788927", icon: "fa-brands fa-whatsapp" },
+      { title: "SITE", url: "https://www.exitocon.com.br/", icon: "fa-solid fa-globe" },
+      { title: "INSTAGRAM", url: "https://instagram.com/exitoconunai", icon: "fa-brands fa-instagram" },
+      { title: "SERVIÇOS", url: "#", icon: "fa-solid fa-briefcase" },
+      { title: "RECUPERAÇÃO DE CREDITO", url: "#", icon: "fa-solid fa-hand-holding-dollar" }
     ];
 
     const linksContainer = document.getElementById("linksContainer");
 
-    links.forEach(({ title, url }) => {
+    links.forEach(({ title, url, icon }) => {
       const anchor = document.createElement("a");
       anchor.className = "link-btn";
       anchor.href = url;
-      anchor.textContent = title;
       anchor.setAttribute("aria-label", `Abrir ${title}`);
+
+      const iconEl = document.createElement("i");
+      iconEl.className = `link-btn-icon ${icon || "fa-solid fa-link"}`;
+      iconEl.setAttribute("aria-hidden", "true");
+
+      const textEl = document.createElement("span");
+      textEl.className = "link-btn-text";
+      textEl.textContent = title;
+
+      const spacerEl = document.createElement("span");
+      spacerEl.setAttribute("aria-hidden", "true");
+
+      anchor.appendChild(iconEl);
+      anchor.appendChild(textEl);
+      anchor.appendChild(spacerEl);
 
       if (!url || url === "#") {
         anchor.target = "_self";
