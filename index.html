@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modal de Links Premium</title>
+  <meta name="description" content="Página de links premium minimalista, responsiva e mobile-first.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer">
+  <style>
+    :root {
+      --bg: #eae6dd;
+      --surface: #f6f3ec;
+      --line: #8c7b6b;
+      --text: #4a3f35;
+      --text-soft: #6f6256;
+      --shadow: 0 14px 30px rgba(74, 63, 53, 0.15);
+      --radius-phone: 2.4rem;
+      --radius-cover: 1.8rem;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 0.55rem;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Montserrat", "Open Sans", Arial, sans-serif;
+    }
+
+    .phone {
+      width: min(100%, 25rem);
+      background: var(--surface);
+      border-radius: var(--radius-phone);
+      border: 1px solid rgba(140, 123, 107, 0.32);
+      box-shadow: var(--shadow);
+      padding: 0.6rem 0.65rem 1rem;
+      animation: fadeInUp 700ms ease both;
+    }
+
+    .notch {
+      width: 34%;
+      height: 0.35rem;
+      border-radius: 100px;
+      margin: 0.25rem auto 0.55rem;
+      background: rgba(140, 123, 107, 0.26);
+    }
+
+    .cover {
+      width: 100%;
+      aspect-ratio: 16 / 8.3;
+      object-fit: cover;
+      object-position: center;
+      border-radius: var(--radius-cover) var(--radius-cover) 0 0;
+      display: block;
+    }
+
+    .profile {
+      width: 6.6rem;
+      height: 6.6rem;
+      margin: -3.25rem auto 0.85rem;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--surface);
+      box-shadow: 0 5px 14px rgba(74, 63, 53, 0.18);
+      display: block;
+      position: relative;
+      z-index: 2;
+    }
+
+    .profile-name {
+      margin: 0;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.7rem;
+      font-weight: 400;
+      text-align: center;
+      letter-spacing: 0.01em;
+      color: var(--text);
+    }
+
+    .profile-role {
+      margin: 0.35rem 0 1.1rem;
+      text-align: center;
+      color: var(--text-soft);
+      font-size: 0.68rem;
+      letter-spacing: 0.31em;
+      font-weight: 600;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      margin-bottom: 1.05rem;
+    }
+
+    .social-link {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.92rem;
+      transition: transform 220ms ease, color 220ms ease, opacity 220ms ease;
+      opacity: 0.9;
+    }
+
+    .social-link:hover,
+    .social-link:focus-visible {
+      transform: translateY(-1px);
+      color: var(--line);
+      opacity: 1;
+      outline: none;
+    }
+
+    .links {
+      display: grid;
+      gap: 0.58rem;
+      padding: 0 0.05rem 0.2rem;
+    }
+
+    .link-btn {
+      display: grid;
+      place-items: center;
+      min-height: 2.35rem;
+      border: 1px solid rgba(140, 123, 107, 0.8);
+      border-radius: 0;
+      background: transparent;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.69rem;
+      letter-spacing: 0.24em;
+      font-weight: 500;
+      transition: background-color 260ms ease, color 260ms ease, transform 220ms ease, box-shadow 260ms ease;
+    }
+
+    .link-btn:hover,
+    .link-btn:focus-visible {
+      background: rgba(140, 123, 107, 0.12);
+      color: #3d342d;
+      transform: translateY(-1px);
+      box-shadow: 0 5px 12px rgba(74, 63, 53, 0.1);
+      outline: none;
+    }
+
+    .link-btn:active {
+      transform: translateY(0);
+    }
+
+    @media (min-width: 740px) {
+      body {
+        padding: 1.8rem;
+      }
+
+      .phone {
+        width: min(100%, 30rem);
+        padding-bottom: 1.35rem;
+      }
+
+      .profile-name {
+        font-size: 2.1rem;
+      }
+
+      .profile-role {
+        font-size: 0.74rem;
+      }
+
+      .link-btn {
+        min-height: 2.72rem;
+        font-size: 0.75rem;
+        letter-spacing: 0.22em;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="phone" aria-label="Cartão de links">
+    <div class="notch" aria-hidden="true"></div>
+
+    <!-- Substitua a imagem da capa alterando apenas o src -->
+    <img
+      class="cover"
+      src="img/image.png"
+      alt="Imagem de capa"
+    >
+
+    <!-- Substitua a foto de perfil alterando apenas o src -->
+    <img
+      class="profile"
+      src="img/LOGO EXITO ALTA QUALIDADE.png"
+      alt="Foto de perfil de Exito Contabilidade"
+    >
+
+    <!-- Nome e subtítulo editáveis -->
+    <h1 class="profile-name">Exito Contabilidade</h1>
+    <p class="profile-role">@exitoconunai</p>
+
+    <nav class="socials" aria-label="Redes sociais">
+      <a class="social-link" href="https://wa.me/38998788927" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+      </a>
+      <a class="social-link" href="https://instagram.com/exitoconunai" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+      </a>
+    </nav>
+
+    <section id="linksContainer" class="links" aria-label="Links principais"></section>
+  </main>
+
+  <script>
+    const links = [
+      { title: "WHATSAPP", url: "https://wa.me/38998788927" },
+      { title: "SITE", url: "https://www.exitocon.com.br/" },
+      { title: "INSTAGRAM", url: "https://instagram.com/exitoconunai" }
+    ];
+
+    const linksContainer = document.getElementById("linksContainer");
+
+    links.forEach(({ title, url }) => {
+      const anchor = document.createElement("a");
+      anchor.className = "link-btn";
+      anchor.href = url;
+      anchor.textContent = title;
+      anchor.setAttribute("aria-label", `Abrir ${title}`);
+
+      if (!url || url === "#") {
+        anchor.target = "_self";
+      } else {
+        anchor.target = "_blank";
+        anchor.rel = "noopener noreferrer";
+      }
+
+      linksContainer.appendChild(anchor);
+    });
+  </script>
+</body>
+</html>
