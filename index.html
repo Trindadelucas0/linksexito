@@ -28,9 +28,11 @@
     body {
       margin: 0;
       min-height: 100vh;
+      min-height: 100dvh;
       display: grid;
-      place-items: center;
-      padding: 0.55rem;
+      justify-items: center;
+      align-content: start;
+      padding: 0.7rem 0.55rem;
       background: var(--bg);
       color: var(--text);
       font-family: "Montserrat", "Open Sans", Arial, sans-serif;
@@ -152,8 +154,41 @@
       transform: translateY(0);
     }
 
+    @media (max-width: 739px) {
+      .phone {
+        width: min(100%, 27rem);
+        min-height: calc(100dvh - 1.4rem);
+        padding: 0.8rem 0.8rem 1.35rem;
+      }
+
+      .profile-name {
+        font-size: 1.95rem;
+      }
+
+      .profile-role {
+        font-size: 0.82rem;
+        letter-spacing: 0.22em;
+      }
+
+      .social-link {
+        font-size: 1.12rem;
+      }
+
+      .links {
+        gap: 0.7rem;
+      }
+
+      .link-btn {
+        min-height: 2.78rem;
+        font-size: 0.82rem;
+        letter-spacing: 0.15em;
+      }
+    }
+
     @media (min-width: 740px) {
       body {
+        min-height: 100vh;
+        place-items: center;
         padding: 1.8rem;
       }
 
